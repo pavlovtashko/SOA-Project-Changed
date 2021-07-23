@@ -1,0 +1,132 @@
+swagger: '2.0'
+info:
+  title: OnlineBook App API
+  version: "0.1"
+  description: OnlineBook App API
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: "/api"
+securityDefinitions:
+  jwt:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-authentication-scheme: Bearer
+    x-bearerInfoFunc: app.decode_token
+paths:
+  /books:
+    get:
+      tags: [ Book ]
+      operationId: app.get_all_books
+      responses:
+        200:
+          description: All books
+  /book/add:
+    post:
+      tags: [ Book ]
+      operationId: app.create_book
+      summary: Creating book entity in DB
+      parameters:
+          - $ref: '#/parameters/book_body'
+      responses:
+        200:
+          description: Successfully created book
+        404:
+          description: Book already Exists
+
+  /book/{book_id}/details:
+    get:
+      tags: [ Book ]
+      operationId: app.get_book
+      parameters:
+          - $ref: '#/parameters/book_id'
+      responses:
+        200:
+          description: Retrieved book with given Id
+        404:
+          description: Book was not found
+
+  /book/{book_id}/update:
+    put:
+      tags: [ Book ]
+      operationId: app.update_book
+      parameters:
+          - $ref: '#/parameters/book_id'
+          - $ref: '#/parameters/book_body'
+      responses:
+        200:
+          description: Successfully updated Book
+        404:
+          description: Book was not found
+
+  /book/{book_id}/reserve:
+    post:
+      tags: [ Book ]
+      operationId: app.reserve_book
+      parameters:
+        - $ref: '#/parameters/book_id'
+        - $ref: '#/parameters/book_copies'
+      responses:
+        200:
+          description: Successfully reserved book
+        404:
+          description: Something went wrong
+  /book/{book_id}/return:
+    post:
+      tags: [ Book ]
+      operationId: app.return_book
+      parameters:
+        - $ref: '#/parameters/book_id'
+        - $ref: '#/parameters/book_copies'
+      responses:
+        200:
+          description: Successfully returned book
+        404:
+          description: Book was not found
+parameters:
+  book_id:
+    name: book_id
+    description: Book ID
+    in: path
+    required: true
+    type: integer
+  book_copies:
+    name: book_copies
+    description: Number of book copies to reserve
+    in: body
+    schema:
+      required:
+        - no_copies
+      properties:
+        no_copies:
+          type: integer
+  book_body:
+    name: book_body
+    description: Book creation arguments
+    in: body
+    schema:
+      required:
+        - author
+        - title
+        - no_pages
+        - year
+        - copies
+        - available
+        - price_per_day
+      properties:
+        author:
+          type: string
+        title:
+          type: string
+        no_pages:
+          type: integer
+        year:
+          type: integer
+        copies:
+          type: integer
+        available:
+          type: boolean
+        price_per_day:
+          type: integer
