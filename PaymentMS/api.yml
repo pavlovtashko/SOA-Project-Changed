@@ -1,0 +1,75 @@
+swagger: '2.0'
+info:
+  title: Payments MS OnlineBook App
+  version: "0.1"
+  description: Payments MS OnlineBook App
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: "/api"
+securityDefinitions:
+  jwt:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-authentication-scheme: Bearer
+    x-bearerInfoFunc: app.decode_token
+paths:
+  /get_total_money/:
+    post:
+      tags: [ Payment ]
+      operationId: app.get_total_money
+      parameters:
+        - $ref: '#/parameters/request_body'
+      responses:
+        200:
+          description: Total Money to pay
+        404:
+          description: Something went wrong
+  /make_payment/:
+    post:
+      tags: [ Payment ]
+      operationId: app.make_payment
+      parameters:
+        - $ref: '#/parameters/payment_body'
+      responses:
+        200:
+          description: Successfully paid
+        404:
+          description: Something went wrong
+parameters:
+  payment_body:
+    name: payment_body
+    description: Make payment
+    in: body
+    schema:
+      required:
+        - money
+        - user_id
+      properties:
+        money:
+          type: integer
+        user_id:
+          type: integer
+  request_body:
+    name: request_body
+    description: Get total money to pay
+    in: body
+    schema:
+      required:
+        - date_from
+        - date_to
+        - book_id
+        - copies
+      properties:
+        date_from:
+          type: string
+          format: date
+        date_to:
+          type: string
+          format: date
+        book_id:
+          type: integer
+        copies:
+          type: integer

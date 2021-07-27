@@ -55,7 +55,7 @@ def create_book(book_body):
 
     return book_schema.dump(new_book)
 
-
+# @has_role(['reserve'])
 def get_book(book_id):
     found_book = db.session.query(Book).get(book_id)
     if found_book:
