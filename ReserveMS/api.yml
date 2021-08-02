@@ -1,0 +1,112 @@
+swagger: '2.0'
+info:
+  title: Reservation MS API
+  version: "0.1"
+  description: Reservation MS API
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: "/api"
+securityDefinitions:
+  jwt:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-authentication-scheme: Bearer
+    x-bearerInfoFunc: app.decode_token
+paths:
+  /reservation/{reservation_id}/details:
+    get:
+      tags: [ Reservation ]
+      operationId: app.get_reservation_details
+      parameters:
+        - $ref: '#/parameters/reservation_id'
+      responses:
+        200:
+          description: Successfully found reservation
+        404:
+          description: Something went wrong
+  /reservations:
+    get:
+      tags: [ Reservation ]
+      operationId: app.get_all_reservations
+      responses:
+        200:
+          description: All reservations
+        404:
+          description: Something went wrong
+  /make_reservation:
+    post:
+      tags: [ Reservation ]
+      operationId: app.make_reservation
+      parameters:
+        - $ref: '#/parameters/reservation_body'
+      responses:
+        200:
+          description: Successfully created new reservation!
+        404:
+          description: Something went wrong!
+  /return_book:
+    post:
+      tags: [ Reservation ]
+      operationId: app.return_book
+      parameters:
+        - $ref: '#/parameters/return_body'
+      responses:
+        200:
+          description: Successfully returned book!
+        404:
+          description: Something went wrong!
+parameters:
+  reservation_id:
+    name: reservation_id
+    description: Id for the reservation
+    in: path
+    required: true
+    type: integer
+  return_body:
+    name: return_body
+    description: Confiscate reservation
+    in: body
+    schema:
+      required:
+        - user_id
+        - book_id
+      properties:
+        user_id:
+          type:
+            integer
+        book_id:
+          type:
+            integer
+  reservation_body:
+    name: reservation_body
+    description: Reservation parameters
+    in: body
+    schema:
+      required:
+        - user_id
+        - book_id
+        - from_date
+        - to_date
+        - no_copies
+      properties:
+        user_id:
+          type: integer
+        book_id:
+          type:
+            integer
+        no_copies:
+          type:
+            integer
+        from_date:
+          type:
+            string
+          format:
+            date
+        to_date:
+          type:
+            string
+          format:
+            date
