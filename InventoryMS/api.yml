@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  title: OnlineBook App API
+  title: Inventory MS API
   version: "0.1"
-  description: OnlineBook App API
+  description: Inventory MS API
 consumes:
   - application/json
 produces:
@@ -36,12 +36,12 @@ paths:
         404:
           description: Book already Exists
 
-  /book/{book_id}/details:
-    get:
+  /book/details:
+    post:
       tags: [ Book ]
       operationId: app.get_book
       parameters:
-          - $ref: '#/parameters/book_id'
+          - $ref: '#/parameters/request_body'
       responses:
         200:
           description: Retrieved book with given Id
@@ -92,6 +92,18 @@ parameters:
     in: path
     required: true
     type: integer
+
+  request_body:
+    name: request_body
+    description: get book details
+    in: body
+    schema:
+      required:
+        - book_title
+      properties:
+        book_title:
+          type: string
+
   book_copies:
     name: book_copies
     description: Number of book copies to reserve
@@ -102,6 +114,7 @@ parameters:
       properties:
         no_copies:
           type: integer
+
   book_body:
     name: book_body
     description: Book creation arguments

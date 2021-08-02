@@ -24,7 +24,7 @@ def has_role(arg):
             try:
                 headers = request.headers
                 if headers.environ['HTTP_AUTHORIZATION']:
-                    token = headers.environ['HTTP_AUTHORIZATION']
+                    token = headers.environ['HTTP_AUTHORIZATION'].split(' ')[1]
                     decoded_token = decode_token(token)
                     if 'admin' in decoded_token['roles']:
                         return fn(*args, **kwargs)
@@ -120,8 +120,9 @@ def register_user(user_register_body):
             return {'error': 'Passwords does not match!'}, 404
 
 
-def get_user_details(user_id):
-    found_user = db.session.query(User).get(user_id)
+@has_role(["shopping_cart"])
+def get_user_details(username):
+    found_user = db.session.query(User).filter_by(username=username).first()
     if found_user:
         return user_schema.dump(found_user)
     else:

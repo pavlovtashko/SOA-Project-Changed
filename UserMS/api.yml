@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  title: Shop Example API
+  title: InventoryMS API
   version: "0.1"
-  description: Simple example API
+  description: InventoryMS API
 consumes:
   - application/json
 produces:
@@ -21,7 +21,7 @@ paths:
       tags: [ User ]
       operationId: app.delete_user
       parameters:
-        - $ref: '#parameters/user_id'
+        - $ref: '#/parameters/user_id'
       responses:
         200:
           description: Successfully deleted user
@@ -34,12 +34,12 @@ paths:
       responses:
         200:
           description: All the users
-  /user/{user_id}/details:
+  /user/{username}/details:
     get:
       tags: [ User ]
       operationId: app.get_user_details
       parameters:
-        - $ref: '#parameters/user_id'
+        - $ref: '#/parameters/username'
       responses:
         200:
           description: Details for given user id
@@ -105,7 +105,12 @@ parameters:
       properties:
         apikey:
           type: string
-
+  username:
+    name: username
+    description: Users name
+    in: path
+    required: true
+    type: string
   user_register_body:
     name: user_register_body
     description: Register new user

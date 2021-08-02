@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 import jwt
 
-JWT_SECRET = 'INVENTORY MS SECRET'
+JWT_SECRET = 'MY JWT SECRET'
 JWT_LIFETIME_SECONDS = 600000
 
 
@@ -15,8 +15,8 @@ def has_role(arg):
         def decorated_view(*args, **kwargs):
             try:
                 headers = request.headers
-                if 'AUTHORIZATION' in headers:
-                    token = headers['AUTHORIZATION'].split(' ')[1]
+                if headers.environ['HTTP_AUTHORIZATION']:
+                    token = headers.environ['HTTP_AUTHORIZATION'].split(' ')[1]
                     decoded_token = decode_token(token)
                     if 'admin' in decoded_token['roles']:
                         return fn(*args, **kwargs)
@@ -37,6 +37,7 @@ def decode_token(token):
     return jwt.decode(token, JWT_SECRET, algorithms=['HS256'])
 
 
+@has_role(["admin"])
 def create_book(book_body):
     found_book = db.session.query(Book).filter_by(title=book_body['title']).first()
     if found_book:
@@ -55,13 +56,14 @@ def create_book(book_body):
 
     return book_schema.dump(new_book)
 
-# @has_role(['reserve'])
-def get_book(book_id):
-    found_book = db.session.query(Book).get(book_id)
+
+@has_role(["shopping_cart"])
+def get_book(request_body):
+    found_book = db.session.query(Book).filter_by(title=request_body['book_title']).first()
     if found_book:
         return book_schema.dump(found_book)
     else:
-        return {'error': 'Book with id: {} was not found!'.format(book_id)}, 404
+        return {'error': 'Book with title: {} was not found!'.format(request_body['book_title'])}, 404
 
 
 def update_book(book_id, book_body):
@@ -86,6 +88,7 @@ def get_all_books():
     return book_schema.dump(books, many=True)
 
 
+@has_role(["shopping_cart"])
 def reserve_book(book_id, book_copies):
     book = db.session.query(Book).get(book_id)
     if book.available:
