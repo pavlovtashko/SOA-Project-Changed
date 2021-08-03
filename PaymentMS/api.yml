@@ -46,12 +46,15 @@ parameters:
     schema:
       required:
         - money
-        - user_id
+        - email
+        - username
       properties:
         money:
           type: integer
-        user_id:
-          type: integer
+        username:
+          type: string
+        email:
+          type: string
   request_body:
     name: request_body
     description: Get total money to pay
@@ -62,6 +65,7 @@ parameters:
         - date_to
         - book_id
         - copies
+        - price_per_day
       properties:
         date_from:
           type: string
@@ -72,4 +76,6 @@ parameters:
         book_id:
           type: integer
         copies:
+          type: integer
+        price_per_day:
           type: integer

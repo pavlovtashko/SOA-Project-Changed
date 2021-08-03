@@ -8,9 +8,9 @@ import requests
 from datetime import date
 import json
 
-JWT_SECRET = 'PAYMENT MS SECRET'
+JWT_SECRET = 'MY JWT SECRET'
 JWT_LIFETIME_SECONDS = 600000
-
+PAYMENT_APIKEY = 'PAYMENT MS SECRET'
 
 def has_role(arg):
     def has_role_inner(fn):
@@ -19,7 +19,7 @@ def has_role(arg):
             try:
                 headers = request.headers
                 if headers.environ['HTTP_AUTHORIZATION']:
-                    token = headers.environ['HTTP_AUTHORIZATION']
+                    token = headers.environ['HTTP_AUTHORIZATION'].split(' ')[1]
                     decoded_token = decode_token(token)
                     if 'admin' in decoded_token['roles']:
                         return fn(*args, **kwargs)
@@ -40,25 +40,23 @@ def decode_token(token):
     return jwt.decode(token, JWT_SECRET, algorithms=['HS256'])
 
 
+@has_role(["shopping_cart"])
 def get_total_money(request_body):
-    id = request_body['book_id']
-    book = requests.get(url=f'http://localhost:5000/api/book/{id}/details')
-
     if request_body['date_from'] > request_body['date_to']:
         return {'error': 'Date from is after day from!'}, 404
 
     date_from_year, date_from_month, date_from_day = request_body['date_from'].split('-')
     date_to_year, date_to_month, date_to_day = request_body['date_to'].split('-')
     day_diff = (date(year=int(date_to_year), month=int(date_to_month), day=int(date_to_day)) - date(year=int(date_from_year), month=int(date_from_month), day=int(date_from_day))).days
-    total_price = int(book.text.split(',')[5].split(':')[1].split('.')[0]) * day_diff * int(request_body['copies'])
+    total_price = int(request_body['price_per_day']) * day_diff * int(request_body['copies'])
 
     return {'Total Price': f'{total_price}'}, 200
 
 
+@has_role(["shopping_cart"])
 def make_payment(payment_body):
-    user = requests.get(url='http://localhost:5002/api/user/{}/details'.format(payment_body['user_id']))
-    user = json.loads(user.text)
-    payment = Payment(username=user['username'], total_money=payment_body['money'], user_email=user['email'])
+    payment = Payment(username=payment_body['username'], total_money=payment_body['money'], user_email=payment_body['email'])
+
     db.session.add(payment)
     db.session.commit()
     return payment_schema.dump(payment)

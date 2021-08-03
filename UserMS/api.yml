@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  title: InventoryMS API
+  title: UserMS API
   version: "0.1"
-  description: InventoryMS API
+  description: UserMS API
 consumes:
   - application/json
 produces:

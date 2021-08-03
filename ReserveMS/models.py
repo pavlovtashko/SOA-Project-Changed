@@ -1,5 +1,5 @@
 from app import db
-from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, auto_field
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Reservation(db.Model):

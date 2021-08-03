@@ -99,7 +99,7 @@ def decode_token(token):
 def register_user(user_register_body):
     found_user = db.session.query(User).filter_by(username=user_register_body['username']).first()
     if found_user:
-        return 409
+        return {'error': 'User with username: {}, already exists!'.format(user_register_body['username'])}, 409
     else:
         if user_register_body['password'] == user_register_body['confirm_password']:
             age = user_register_body['age']
@@ -120,7 +120,7 @@ def register_user(user_register_body):
             return {'error': 'Passwords does not match!'}, 404
 
 
-@has_role(["shopping_cart"])
+@has_role(["shopping_cart", "payments"])
 def get_user_details(username):
     found_user = db.session.query(User).filter_by(username=username).first()
     if found_user:

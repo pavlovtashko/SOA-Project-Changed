@@ -8,7 +8,7 @@ import requests
 from datetime import date
 import json
 
-JWT_SECRET = 'RESERVATIONS MS SECRET'
+JWT_SECRET = 'MY JWT SECRET'
 JWT_LIFETIME_SECONDS = 600000
 
 
@@ -19,7 +19,7 @@ def has_role(arg):
             try:
                 headers = request.headers
                 if headers.environ['HTTP_AUTHORIZATION']:
-                    token = headers.environ['HTTP_AUTHORIZATION']
+                    token = headers.environ['HTTP_AUTHORIZATION'].split(' ')[1]
                     decoded_token = decode_token(token)
                     if 'admin' in decoded_token['roles']:
                         return fn(*args, **kwargs)
@@ -40,15 +40,15 @@ def decode_token(token):
     return jwt.decode(token, JWT_SECRET, algorithms=['HS256'])
 
 
+@has_role(["shopping_cart"])
 def make_reservation(reservation_body):
-    #user_id, book_id, no_copies, from_date, to_date
     result = db.session.query(Reservation).filter_by(user_id=reservation_body['user_id']).all()
     if result:
         active_reservations = 0
         for i in result:
             if i.active:
                 active_reservations += 1
-            if i.book_id == reservation_body['book_id']:
+            if i.book_id == reservation_body['book_id'] and i.active:
                 return {'error': 'You can not reserve the same book again!'}, 404
         if active_reservations >= 3:
             return {'error': 'User can not have more than 3 reservations'}, 404
@@ -65,14 +65,16 @@ def make_reservation(reservation_body):
     return payment_schema.dump(new_reservation)
 
 
+@has_role(['shopping_cart'])
 def return_book(return_body):
     # user_id, book_id
     reservations = db.session.query(Reservation).filter_by(user_id=return_body['user_id']).all()
     for res in reservations:
-        if res.book_id == return_body['book_id']:
+        if res.book_id == return_body['book_id'] and res.active:
             res.active = False
             db.session.commit()
-            return {'success': 'Successfully returned book!'}, 200
+            return {'success': 'Successfully returned book!',
+                    'book_copies': res.no_copies}, 200
     return {'error': 'Something went wrong!'}, 404
 
 
@@ -81,12 +83,13 @@ def get_all_reservations():
     return payment_schema.dump(reservations, many=True)
 
 
-def get_reservation_details(reservation_id):
-    res = db.session.query(Reservation).get(reservation_id)
+@has_role(['shopping_cart'])
+def get_reservation_details(user_id):
+    res = db.session.query(Reservation).filter_by(user_id=user_id).all()
     if res:
-        return payment_schema.dump(res)
+        return payment_schema.dump(res, many=True)
     else:
-        return {'error': 'No reservation with id {}'.format(reservation_id)}, 404
+        return {'error': 'No reservation with uses_id {}'.format(user_id)}, 404
 
 
 connexion_app = connexion.App(__name__, specification_dir="./")
@@ -99,4 +102,4 @@ connexion_app.add_api("api.yml")
 from models import Reservation, ReservationSchema
 payment_schema = ReservationSchema()
 if __name__ == "__main__":
-    connexion_app.run(host='0.0.0.0', port=5004, debug=True)
+    connexion_app.run(host='0.0.0.0', port=5005, debug=True)

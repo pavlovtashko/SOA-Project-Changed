@@ -16,6 +16,39 @@ securityDefinitions:
     x-authentication-scheme: Bearer
     x-bearerInfoFunc: app.decode_token
 paths:
+  /check_my_reservations/{username}:
+    get:
+      tags: [ Check Reservations ]
+      operationId: app.check_reservations
+      parameters:
+        - $ref: '#/parameters/username'
+      responses:
+        200:
+          description: All of your reservations
+        404:
+          description: Something went wrong!
+  /return_book:
+    post:
+      tags: [ Return ]
+      operationId: app.return_book
+      parameters:
+        - $ref: '#/parameters/return_body'
+      responses:
+        200:
+          description: Successfully returned book
+        404:
+          description: Something went wrong
+  /create_book:
+    post:
+      tags: [ Book Creation]
+      operationId: app.create_new_book
+      parameters:
+        - $ref: '#/parameters/book_body'
+      responses:
+        200:
+          description: Successfully created book
+        404:
+          description: Something went wrong
   /reserve_book:
     post:
       tags: [ Reservation ]
@@ -28,6 +61,60 @@ paths:
         404:
           description: Something went wrong
 parameters:
+  username:
+    name: username
+    description: Your username
+    in: path
+    required: true
+    type: string
+
+  return_body:
+    name: return_body
+    description: Return book parameters
+    in: body
+    schema:
+      required:
+        - username
+        - book_title
+      properties:
+        username:
+          type: string
+        book_title:
+          type: string
+  book_body:
+    name: book_body
+    description: Book creation parameters
+    in: body
+    schema:
+      required:
+        - username
+        - password
+        - author
+        - title
+        - no_pages
+        - year
+        - copies
+        - available
+        - price_per_day
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        author:
+          type: string
+        title:
+          type: string
+        no_pages:
+          type: integer
+        year:
+          type: integer
+        copies:
+          type: integer
+        available:
+          type: boolean
+        price_per_day:
+          type: integer
   reservation_body:
     name: reservation_body
     description: Reservation parameters
@@ -37,6 +124,8 @@ parameters:
         - username
         - book_title
         - no_copies
+        - from_date
+        - to_date
       properties:
         username:
           type: string
@@ -44,3 +133,9 @@ parameters:
           type: string
         no_copies:
           type: integer
+        from_date:
+          type: string
+          format: date
+        to_date:
+          type: string
+          format: date

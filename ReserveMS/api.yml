@@ -16,12 +16,12 @@ securityDefinitions:
     x-authentication-scheme: Bearer
     x-bearerInfoFunc: app.decode_token
 paths:
-  /reservation/{reservation_id}/details:
+  /reservation/{user_id}/details:
     get:
       tags: [ Reservation ]
       operationId: app.get_reservation_details
       parameters:
-        - $ref: '#/parameters/reservation_id'
+        - $ref: '#/parameters/user_id'
       responses:
         200:
           description: Successfully found reservation
@@ -59,6 +59,13 @@ paths:
         404:
           description: Something went wrong!
 parameters:
+  user_id:
+    name: user_id
+    description: Your username
+    in: path
+    required: true
+    type: integer
+
   reservation_id:
     name: reservation_id
     description: Id for the reservation

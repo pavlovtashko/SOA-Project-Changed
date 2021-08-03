@@ -39,6 +39,7 @@ def decode_token(token):
 
 @has_role(["admin"])
 def create_book(book_body):
+
     found_book = db.session.query(Book).filter_by(title=book_body['title']).first()
     if found_book:
         return {'error': 'Book with title {} already exists!'.format(book_body['title'])}, 404
@@ -104,6 +105,7 @@ def reserve_book(book_id, book_copies):
         return {'error': 'Book is currently not available'}, 404
 
 
+@has_role(["shopping_cart"])
 def return_book(book_id, book_copies):
     book = db.session.query(Book).get(book_id)
     if book:
