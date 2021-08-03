@@ -5,11 +5,54 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 import jwt
 import requests
+from consul import Consul, Check
 from datetime import date
 import json
 
 JWT_SECRET = 'MY JWT SECRET'
 SHOPPING_CART_APIKEY = 'SHOPPING CART MS SECRET'
+
+
+# Adding MS to consul
+
+consul_port = 8500
+service_name = "sc"
+service_port = 5004
+
+
+def register_to_consul():
+    consul = Consul(host='consul', port=consul_port)
+
+    agent = consul.agent
+
+    service = agent.service
+
+    check = Check.http(f"http://{service_name}:{service_port}/api/ui", interval="10s", timeout="5s", deregister="1s")
+
+    service.register(service_name, service_id=service_name, port=service_port, check=check)
+
+
+def get_service(service_id):
+    consul = Consul(host="consul", port=consul_port)
+
+    agent = consul.agent
+
+    service_list = agent.services()
+
+    service_info = service_list[service_id]
+
+    return service_info['Address'], service_info['Port']
+
+
+def get_service_url(service_name):
+    address, port = get_service(service_name)
+
+    url = "{}:{}".format(address, port)
+
+    if not url.startswith("http"):
+        url = "http://{}".format(url)
+
+    return url
 
 
 def has_role(arg):
@@ -46,7 +89,8 @@ def create_new_book(book_body):
         'username': book_body['username'],
         'password': book_body['password']
     }
-    jwt_token = requests.post(url='http://localhost:5002/api/auth', json=body)
+    jwt_token = requests.post(url='http://localhost:5002/api/auth',
+                              json=body)
 
     auth_value = "Bearer {}".format(jwt_token.json())
     AUTH_HEADER = {"AUTHORIZATION": auth_value}
@@ -59,7 +103,6 @@ def create_new_book(book_body):
         'available': book_body['available'],
         'price_per_day': book_body['price_per_day']
     }
-
     response = requests.post(url='http://localhost:5000/api/book/add',
                              headers=AUTH_HEADER,
                              json=body)
@@ -75,12 +118,13 @@ def check_reservations(username):
     body = {
         'apikey': SHOPPING_CART_APIKEY
     }
-    jwt_token = requests.post(url='http://localhost:5002/api/auth_microservice', json=body)
+    jwt_token = requests.post(url='http://localhost:5002/api/auth_microservice',
+                              json=body)
 
     auth_value = "Bearer {}".format(jwt_token.json())
     AUTH_HEADER = {"AUTHORIZATION": auth_value}
 
-    user_details = requests.get(url='http://localhost:5002/api//user/{}/details'.format(username),
+    user_details = requests.get(url='http://localhost:5002/api/user/{}/details'.format(username),
                                 headers=AUTH_HEADER)
 
     reservations = requests.get(url='http://localhost:5005/api/reservation/{}/details'.format(user_details.json()['id']),
@@ -97,7 +141,8 @@ def return_book(return_body):
     body = {
         'apikey': SHOPPING_CART_APIKEY
     }
-    jwt_token = requests.post(url='http://localhost:5002/api/auth_microservice', json=body)
+    jwt_token = requests.post(url='http://localhost:5002/api/auth_microservice',
+                              json=body)
 
     auth_value = "Bearer {}".format(jwt_token.json())
     AUTH_HEADER = {"AUTHORIZATION": auth_value}
@@ -217,5 +262,6 @@ connexion_app.add_api("api.yml")
 from models import ShoppingCart, ShoppingCartSchema
 
 payment_schema = ShoppingCartSchema()
+# register_to_consul()
 if __name__ == "__main__":
     connexion_app.run(host='0.0.0.0', port=5004, debug=True)

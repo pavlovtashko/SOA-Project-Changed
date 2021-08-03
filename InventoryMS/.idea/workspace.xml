@@ -2,29 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b79756dc-84c4-4d7b-8c40-e6507c8b02f7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PaymentMS/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReserveMS/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ShoppingCartMS/.idea/ShoppingCartMS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ShoppingCartMS/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PaymentMS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentMS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentMS/api.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PaymentMS/app.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PaymentMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentMS/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PaymentMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentMS/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/api.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/app.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PaymentMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../PaymentMS/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReserveMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ReserveMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/versions/26686e021234_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/api.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReserveMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserMS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/api.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserMS/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +114,8 @@
       <workItem from="1627054798740" duration="6646000" />
       <workItem from="1627403482439" duration="865000" />
       <workItem from="1627937257900" duration="6669000" />
-      <workItem from="1628008493449" duration="6298000" />
+      <workItem from="1628008493449" duration="7226000" />
+      <workItem from="1628027984074" duration="706000" />
     </task>
     <servers />
   </component>
@@ -130,48 +134,48 @@
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
     <state x="748" y="280" key="FileChooserDialogImpl/0.0.1920.1043@0.0.1920.1043" timestamp="1627065184951" />
-    <state width="1874" height="293" key="GridCell.Tab.0.bottom" timestamp="1628012212732">
+    <state width="1874" height="293" key="GridCell.Tab.0.bottom" timestamp="1628028694014">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.0.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212732" />
-    <state width="1874" height="293" key="GridCell.Tab.0.center" timestamp="1628012212732">
+    <state width="1874" height="293" key="GridCell.Tab.0.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694014" />
+    <state width="1874" height="293" key="GridCell.Tab.0.center" timestamp="1628028694013">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.0.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212732" />
-    <state width="1874" height="293" key="GridCell.Tab.0.left" timestamp="1628012212732">
+    <state width="1874" height="293" key="GridCell.Tab.0.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694013" />
+    <state width="1874" height="293" key="GridCell.Tab.0.left" timestamp="1628028694013">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.0.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212732" />
-    <state width="1874" height="293" key="GridCell.Tab.0.right" timestamp="1628012212732">
+    <state width="1874" height="293" key="GridCell.Tab.0.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694013" />
+    <state width="1874" height="293" key="GridCell.Tab.0.right" timestamp="1628028694013">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.0.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212732" />
-    <state width="1874" height="293" key="GridCell.Tab.1.bottom" timestamp="1628012212641">
+    <state width="1874" height="293" key="GridCell.Tab.0.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694013" />
+    <state width="1874" height="293" key="GridCell.Tab.1.bottom" timestamp="1628028694015">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.1.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212641" />
-    <state width="1874" height="293" key="GridCell.Tab.1.center" timestamp="1628012212641">
+    <state width="1874" height="293" key="GridCell.Tab.1.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694015" />
+    <state width="1874" height="293" key="GridCell.Tab.1.center" timestamp="1628028694014">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.1.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212641" />
-    <state width="1874" height="293" key="GridCell.Tab.1.left" timestamp="1628012212641">
+    <state width="1874" height="293" key="GridCell.Tab.1.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694014" />
+    <state width="1874" height="293" key="GridCell.Tab.1.left" timestamp="1628028694014">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.1.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212641" />
-    <state width="1874" height="293" key="GridCell.Tab.1.right" timestamp="1628012212641">
+    <state width="1874" height="293" key="GridCell.Tab.1.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694014" />
+    <state width="1874" height="293" key="GridCell.Tab.1.right" timestamp="1628028694015">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="293" key="GridCell.Tab.1.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628012212641" />
+    <state width="1874" height="293" key="GridCell.Tab.1.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628028694015" />
     <state x="461" y="157" key="SettingsEditor" timestamp="1627055012424">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
     <state x="461" y="157" key="SettingsEditor/0.0.1920.1043@0.0.1920.1043" timestamp="1627055012424" />
-    <state x="639" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1628008544134">
+    <state x="639" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1628028004140">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state x="639" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1043@0.0.1920.1043" timestamp="1628008544134" />
+    <state x="639" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1043@0.0.1920.1043" timestamp="1628028004140" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/InventoryMS$app.coverage" NAME="app Coverage Results" MODIFIED="1628012212610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/InventoryMS$app.coverage" NAME="app Coverage Results" MODIFIED="1628028108815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -4,3 +4,4 @@ connexion[swagger-ui]
 sqlalchemy
 pyjwt
 marshmallow-sqlalchemy
+python-consul

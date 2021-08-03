@@ -2,29 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcb1b86e-5cde-4f38-b945-0013bfdd1437" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InventoryMS/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReserveMS/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ShoppingCartMS/.idea/ShoppingCartMS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ShoppingCartMS/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../InventoryMS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../InventoryMS/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../InventoryMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../InventoryMS/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../InventoryMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../InventoryMS/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InventoryMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../InventoryMS/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/api.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/app.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ReserveMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/migrations/versions/26686e021234_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReserveMS/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/api.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReserveMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ReserveMS/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShoppingCartMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ShoppingCartMS/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserMS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserMS/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/api.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserMS/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserMS/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UserMS/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserMS/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../UserMS/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +90,8 @@
       <updated>1627065186575</updated>
       <workItem from="1627065187903" duration="1736000" />
       <workItem from="1627402864567" duration="4870000" />
-      <workItem from="1628008555700" duration="5267000" />
+      <workItem from="1628008555700" duration="6188000" />
+      <workItem from="1628028019915" duration="590000" />
     </task>
     <task id="LOCAL-00001" summary="Done with 3 MSs">
       <created>1627407735741</created>
@@ -99,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627407735741</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="All done with the Microservices">
+      <created>1628023931873</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628023931873</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,63 +118,68 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done with 3 MSs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done with 3 MSs" />
+    <MESSAGE value="All done with the Microservices" />
+    <option name="LAST_COMMIT_MESSAGE" value="All done with the Microservices" />
   </component>
   <component name="WindowStateProjectService">
     <state x="815" y="453" key="#xdebugger.evaluate" timestamp="1627407538585">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
     <state x="815" y="453" key="#xdebugger.evaluate/0.0.1920.1043@0.0.1920.1043" timestamp="1627407538585" />
-    <state x="428" y="99" key="CommitChangelistDialog2" timestamp="1627407735032">
+    <state x="428" y="99" key="CommitChangelistDialog2" timestamp="1628023931151">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state x="428" y="99" key="CommitChangelistDialog2/0.0.1920.1043@0.0.1920.1043" timestamp="1627407735032" />
-    <state width="1874" height="339" key="GridCell.Tab.0.bottom" timestamp="1628013104282">
+    <state x="428" y="99" key="CommitChangelistDialog2/0.0.1920.1043@0.0.1920.1043" timestamp="1628023931151" />
+    <state width="1874" height="339" key="GridCell.Tab.0.bottom" timestamp="1628028061768">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.0.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104282" />
-    <state width="1874" height="339" key="GridCell.Tab.0.center" timestamp="1628013104281">
+    <state width="1874" height="339" key="GridCell.Tab.0.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628028061768" />
+    <state width="1874" height="339" key="GridCell.Tab.0.center" timestamp="1628028061767">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.0.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104281" />
-    <state width="1874" height="339" key="GridCell.Tab.0.left" timestamp="1628013104281">
+    <state width="1874" height="339" key="GridCell.Tab.0.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628028061767" />
+    <state width="1874" height="339" key="GridCell.Tab.0.left" timestamp="1628028061767">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.0.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104281" />
-    <state width="1874" height="339" key="GridCell.Tab.0.right" timestamp="1628013104282">
+    <state width="1874" height="339" key="GridCell.Tab.0.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628028061767" />
+    <state width="1874" height="339" key="GridCell.Tab.0.right" timestamp="1628028061768">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.0.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104282" />
-    <state width="1874" height="339" key="GridCell.Tab.1.bottom" timestamp="1628013104194">
+    <state width="1874" height="339" key="GridCell.Tab.0.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628028061768" />
+    <state width="1874" height="339" key="GridCell.Tab.1.bottom" timestamp="1628024802481">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104194" />
-    <state width="1874" height="339" key="GridCell.Tab.1.center" timestamp="1628013104194">
+    <state width="1874" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1043@0.0.1920.1043" timestamp="1628024802481" />
+    <state width="1874" height="339" key="GridCell.Tab.1.center" timestamp="1628024802480">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.1.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104194" />
-    <state width="1874" height="339" key="GridCell.Tab.1.left" timestamp="1628013104194">
+    <state width="1874" height="339" key="GridCell.Tab.1.center/0.0.1920.1043@0.0.1920.1043" timestamp="1628024802480" />
+    <state width="1874" height="339" key="GridCell.Tab.1.left" timestamp="1628024802479">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.1.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104194" />
-    <state width="1874" height="339" key="GridCell.Tab.1.right" timestamp="1628013104194">
+    <state width="1874" height="339" key="GridCell.Tab.1.left/0.0.1920.1043@0.0.1920.1043" timestamp="1628024802479" />
+    <state width="1874" height="339" key="GridCell.Tab.1.right" timestamp="1628024802481">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state width="1874" height="339" key="GridCell.Tab.1.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628013104194" />
+    <state width="1874" height="339" key="GridCell.Tab.1.right/0.0.1920.1043@0.0.1920.1043" timestamp="1628024802481" />
     <state x="461" y="157" key="SettingsEditor" timestamp="1627065812255">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
     <state x="461" y="157" key="SettingsEditor/0.0.1920.1043@0.0.1920.1043" timestamp="1627065812255" />
-    <state x="560" y="258" key="Vcs.Push.Dialog.v2" timestamp="1627407746180">
+    <state x="560" y="258" key="Vcs.Push.Dialog.v2" timestamp="1628023939776">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
-    <state x="560" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1043@0.0.1920.1043" timestamp="1627407746180" />
+    <state x="560" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1043@0.0.1920.1043" timestamp="1628023939776" />
     <state x="639" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1627402907486">
       <screen x="0" y="0" width="1920" height="1043" />
     </state>
     <state x="639" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1043@0.0.1920.1043" timestamp="1627402907486" />
+    <state x="599" y="239" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1628023919220">
+      <screen x="0" y="0" width="1920" height="1043" />
+    </state>
+    <state x="599" y="239" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1043@0.0.1920.1043" timestamp="1628023919220" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PaymentMS$app.coverage" NAME="app Coverage Results" MODIFIED="1628013104146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PaymentMS$app.coverage" NAME="app Coverage Results" MODIFIED="1628028059407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

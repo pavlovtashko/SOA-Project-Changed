@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 import jwt
 import time
 from flask_bcrypt import Bcrypt
+from consul import Consul, Check
 
 JWT_SECRET = 'MY JWT SECRET'
 JWT_LIFETIME_SECONDS = 600000
@@ -15,6 +16,35 @@ SHOPPING_CART_APIKEY = 'SHOPPING CART MS SECRET'
 RESERVATIONS_APIKEY = 'RESERVATIONS MS SECRET'
 PAYMENT_APIKEY = 'PAYMENT MS SECRET'
 INVENTORY_APIKEY = 'INVENTORY MS SECRET'
+
+
+# Adding MS to consul
+
+consul_port = 8500
+service_name = "user"
+service_port = 5002
+
+
+def register_to_consul():
+    consul = Consul(host='consul', port=consul_port)
+
+    agent = consul.agent
+
+    service = agent.service
+
+    check = Check.http(f"http://{service_name}:{service_port}/api/ui", interval="10s", timeout="5s", deregister="1s")
+
+    service.register(service_name, service_id=service_name, port=service_port, check=check)
+
+
+def get_service(service_id):
+    consul = Consul(host="consul", port=consul_port)
+
+    agent = consul.agent
+
+    service_list = agent.services()
+
+    service_info = service_list[service_id]
 
 
 def has_role(arg):
@@ -152,6 +182,6 @@ from models import User, UserSchema
 
 user_schema = UserSchema(exclude=['password'])
 bcrypt = Bcrypt(app)
-
+#register_to_consul()
 if __name__ == "__main__":
     connexion_app.run(host='0.0.0.0', port=5002, debug=True)

@@ -5,3 +5,4 @@ sqlalchemy
 pyjwt
 marshmallow-sqlalchemy
 flask-bcrypt
+python-consul

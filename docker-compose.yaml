@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+
+  consul:
+    image: consul
+    ports:
+      - "8500:8500"
+
+  inventory:
+    build:
+      context: ./InventoryMS
+    volumes:
+      - ./InventoryMS:/app
+    ports:
+      - 5001:5000
+
+  payment:
+    build:
+      context: ./PaymentMS
+    volumes:
+      - ./PaymentMS:/app
+    ports:
+      - 5002:5000
+
+  reserve:
+    build:
+      context: ./ReserveMS
+    volumes:
+      - ./ReserveMS:/app
+    ports:
+      - 5003:5000
+
+  sc:
+    build:
+      context: ./ShoppingCartMS
+    volumes:
+      - ./ShoppingCartMS:/app
+    ports:
+      - 5004:5000
+
+  user:
+    build:
+      context: ./UserMS
+    volumes:
+      - ./UserMS:/app
+    ports:
+      - 5005:5000

@@ -7,10 +7,40 @@ import jwt
 import requests
 from datetime import date
 import json
+from consul import Consul, Check
 
 JWT_SECRET = 'MY JWT SECRET'
 JWT_LIFETIME_SECONDS = 600000
 PAYMENT_APIKEY = 'PAYMENT MS SECRET'
+
+# Adding MS to consul
+
+consul_port = 8500
+service_name = "payment"
+service_port = 5001
+
+
+def register_to_consul():
+    consul = Consul(host='consul', port=consul_port)
+
+    agent = consul.agent
+
+    service = agent.service
+
+    check = Check.http(f"http://{service_name}:{service_port}/api/ui", interval="10s", timeout="5s", deregister="1s")
+
+    service.register(service_name, service_id=service_name, port=service_port, check=check)
+
+
+def get_service(service_id):
+    consul = Consul(host="consul", port=consul_port)
+
+    agent = consul.agent
+
+    service_list = agent.services()
+
+    service_info = service_list[service_id]
+
 
 def has_role(arg):
     def has_role_inner(fn):
@@ -71,5 +101,6 @@ connexion_app.add_api("api.yml")
 
 from models import Payment, PaymentSchema
 payment_schema = PaymentSchema()
+#register_to_consul()
 if __name__ == "__main__":
     connexion_app.run(host='0.0.0.0', port=5001, debug=True)
