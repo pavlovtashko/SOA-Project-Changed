@@ -4,9 +4,7 @@ from flask import request, abort
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 import jwt
-import requests
 from datetime import date
-import json
 from consul import Consul, Check
 
 JWT_SECRET = 'MY JWT SECRET'
@@ -130,7 +128,6 @@ connexion_app.add_api("api.yml")
 
 from models import Reservation, ReservationSchema
 payment_schema = ReservationSchema()
-#register_to_consul()
 
 if __name__ == "__main__":
     connexion_app.run(host='0.0.0.0', port=5005, debug=True)

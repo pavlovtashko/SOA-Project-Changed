@@ -118,8 +118,8 @@ def auth_microservice(auth_body_microservice):
         "sub": sub,
         "roles": roles
     }
-    encoded = jwt.encode(payload, JWT_SECRET, algorithm="HS256")
-    return encoded
+
+    return jwt.encode(payload, JWT_SECRET, algorithm="HS256")
 
 
 def decode_token(token):
